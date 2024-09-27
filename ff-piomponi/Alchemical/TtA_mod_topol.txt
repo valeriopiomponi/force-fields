@@ -1,0 +1,30 @@
+TtA implement the alchemical transfromation of Thr into Ala. After creation with gmx pdb3gmcx, topol.top should be modified in order to define dummy atoms and second topology for the hybrid residue:
+
+
+; to be added before [ moleculetype ]
+[ atomtypes ] 
+;        name  bond_type         mass       charge        ptype        sigma      epsilon
+         CT_dum           CT      0.00000      0.00000            A  0.0   0.00000e+00
+         HC_dum           HC      0.00000      0.00000            A  0.0   0.00000e+00
+         H1_dum           H1      0.00000      0.00000            A  0.0   0.00000e+00
+         HO_dum           HO      0.00000      0.00000            A  0.0   0.00000e+00
+         OH_dum           OH      0.00000      0.00000            A  0.0   0.00000e+00
+
+;to be added as new columns in TtA
+           N      -0.404773     14.01
+           H       0.294276     1.008
+          CT      -0.027733     12.01
+          H1       0.120802     1.008
+          CT      -0.229951     12.01
+      H1_dum       0.0          1.008
+          HC       0.077428     1.008
+          HC       0.077428     1.008
+          HC       0.077428     1.008
+      CT_dum       0.0          12.01
+      HC_dum       0.0          1.008
+      HC_dum       0.0          1.008
+      HC_dum       0.0          1.008
+      OH_dum       0.0             16
+      HO_dum       0.0          1.008
+           C       0.570224     12.01
+           O      -0.555129        16

@@ -1,0 +1,40 @@
+EtT implement the alchemical transfromation of Glu into Thr. After creation with gmx pdb3gmcx, topol.top should be modified in order to define dummy atoms and second topology for the hybrid residue:
+
+
+; to be added before [ moleculetype ]
+[ atomtypes ] 
+;        name  bond_type         mass       charge        ptype        sigma      epsilon
+         CT_dum           CT      0.00000      0.00000            A  0.0   0.00000e+00
+         HC_dum           HC      0.00000      0.00000            A  0.0   0.00000e+00
+         H1_dum           H1      0.00000      0.00000            A  0.0   0.00000e+00
+         HO_dum           HO      0.00000      0.00000            A  0.0   0.00000e+00
+         OH_dum           OH      0.00000      0.00000            A  0.0   0.00000e+00
+          C_dum            C      0.00000       0.0000            A  0.0   0.000000         
+         O2_dum           O2      0.00000       0.0000            A  0.0   0.000000 
+
+;to be added as new columns in EtT
+
+  N        -0.4157      14.01        
+  H         0.2719      1.008
+ CT        -0.0389      12.01
+ H1         0.1007      1.008
+ CT         0.3654      12.01
+ HC_dum     0.0000      1.008 
+ HC_dum     0.0000      1.008
+ H1         0.0043      1.008
+ OH        -0.6761         16
+ HO         0.4102      1.008
+ CT        -0.2438      12.01
+ HC_dum     0.000       1.008 
+ HC_dum     0.000       1.008
+ HC         0.0642      1.008
+ HC         0.0642      1.008
+ HC         0.0642      1.008
+ C_dum      0.0000      12.01
+ O2_dum     0.0000         16
+ O2_dum     0.0000         16
+  C         0.5973      12.01
+  O        -0.5679         16 
+
+
+Once conf_solv_ions.gro is created, alchemical water/ion must be created to compensate for change in charge between E (-1) and T (0)
